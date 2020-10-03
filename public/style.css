@@ -1,0 +1,29 @@
+a {
+    display: block;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+#user_info {
+    background-color: burlywood;
+    width: 30%;
+}
+
+#repo_holder {
+    width: 50%;
+    margin-left: 10px;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 70%;
+}
+
+h1,
+h2 {
+    text-align: center;
+}

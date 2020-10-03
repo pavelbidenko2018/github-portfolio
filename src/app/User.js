@@ -1,3 +1,5 @@
+import { Repo } from "./repo.js";
+
 export class User {
 
     login = '';
@@ -13,8 +15,43 @@ export class User {
         Object.assign(this, userData)
     }
 
-
     populate() {
+
+        return fetch(this.repos_url)
+            .then(res => res.json())
+            .then(repoData => {
+                repoData.forEach(repo => this.repos.push(new Repo(repo)))
+                return this;
+            })
+            .then(preparedRepoData => {
+                preparedRepoData.render();
+                preparedRepoData.repos.forEach(item => console.log(item))
+
+            })
+            .catch(err => console.log(err));
+    }
+
+    render() {
+
+        const img = document.createElement('img');
+        img.src = this.avatar_url;
+
+        const h1 = document.createElement('h1');
+        h1.innerHTML = this.login;
+
+        const h2 = document.createElement('h2');
+        h2.innerHTML = `Email: ${this.email}`;
+
+        const user_info = document.getElementById('user_info');
+        user_info.appendChild(h1);
+        user_info.appendChild(img);
+        user_info.appendChild(h2);
+
+        const repo_holder = document.getElementById('repo_holder');
+
+        this.repos.forEach(item => {
+            repo_holder.appendChild(item.render());
+        })
 
     }
 

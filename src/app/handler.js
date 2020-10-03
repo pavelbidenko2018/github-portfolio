@@ -7,7 +7,7 @@ export async function appHandler() {
         .then(payload => {
 
             const user = new User(payload);
-            user.getRepos();
+            user.populate();
 
             console.log(`login: ${user.login} repos: ${user.repos_url}`);
 
