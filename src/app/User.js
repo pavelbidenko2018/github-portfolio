@@ -20,7 +20,8 @@ export class User {
         return fetch(this.repos_url)
             .then(res => res.json())
             .then(repoData => {
-                repoData.forEach(repo => this.repos.push(new Repo(repo)))
+                repoData.forEach(repo => this.repos.push(new Repo(repo)));
+                this.repos.sort((a, b) => (Date.parse(b.created_at) - Date.parse(a.created_at)));
                 return this;
             })
             .then(preparedRepoData => {
@@ -40,7 +41,7 @@ export class User {
         h1.innerHTML = this.login;
 
         const h2 = document.createElement('h2');
-        h2.innerHTML = `Email: ${this.email}`;
+        h2.innerHTML = `${this.bio}`;
 
         const user_info = document.getElementById('user_info');
         user_info.appendChild(h1);

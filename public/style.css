@@ -1,8 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
 a {
     display: block;
 }
 
 main {
+    margin: auto;
     display: flex;
     flex-direction: row;
 }
@@ -10,6 +19,9 @@ main {
 #user_info {
     background-color: burlywood;
     width: 30%;
+    border-radius: 10px;
+    word-wrap: break-word;
+    padding: 0 10px;
 }
 
 #repo_holder {
@@ -21,9 +33,28 @@ img {
     display: block;
     margin: auto;
     width: 70%;
+    border-radius: 10px;
+}
+
+.repo {
+    margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #eee;
+    word-wrap: break-word;
 }
 
 h1,
 h2 {
     text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    display: block;
+}
+
+h2 {
+    font-size: 0.8rem;
+    display: block;
 }
